@@ -16,18 +16,25 @@ class FeedState extends State<FeedPage> {
         ),
         body: ListView(
           children: _items
-              .map((item) => FeedItemWidget(
-                  item: item,
-                  onTap: () {
-                    Navigator.push(context, _getItemDetailsRoute(item));
-                  }))
+              .map((item) =>
+                  FeedItemWidget(item: item, onTap: () => {_onItemTap(item)}))
               .toList(),
         ),
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: () {
-              Navigator.push(context, _getAddNewItemRouter());
-            }));
+            child: Icon(Icons.add), onPressed: _onAddButton));
+  }
+
+  _onItemTap(FeedItem item) {
+    Navigator.push(context, _getItemDetailsRoute(item));
+  }
+
+  _onAddButton() async {
+    final item = await Navigator.push(context, _getAddNewItemRouter());
+    if (item != null) {
+      setState(() {
+        _items.add(item);
+      });
+    }
   }
 
   Route<void> _getItemDetailsRoute(FeedItem item) {

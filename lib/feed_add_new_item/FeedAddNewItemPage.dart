@@ -1,30 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:publicpoll_flutter/feed_add_new_item/FeedAddNewItemState.dart';
 
-class FeedAddNewItemPage extends StatelessWidget {
+class FeedAddNewItemPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Create new poll"),
-      ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        children: [
-          TextFormField(
-            decoration: InputDecoration(hintText: "Question"),
-          ),
-          TextFormField(
-            decoration: InputDecoration(hintText: "Option 1"),
-          ),
-          TextFormField(
-            decoration: InputDecoration(hintText: "Option 2"),
-          )
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => {},
-      ),
-    );
+  State<StatefulWidget> createState() {
+    return FeedAddNewItemState();
   }
 }

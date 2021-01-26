@@ -1,6 +1,8 @@
+import 'package:flutter/widgets.dart';
+
 class FeedItem {
   String question;
   List<String> options;
 
-  FeedItem(this.question, this.options);
+  FeedItem({@required this.question, @required this.options});
 }
