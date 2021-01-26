@@ -3,31 +3,35 @@ import 'package:publicpoll_flutter/feed/FeedItem.dart';
 
 class FeedItemWidget extends StatelessWidget {
   final FeedItem item;
+  final GestureTapCallback onTap;
 
-  const FeedItemWidget({Key key, this.item}) : super(key: key);
+  const FeedItemWidget({Key key, @required this.item, @required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      child: Container(
-        alignment: AlignmentDirectional.centerStart,
-        padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-        child: Column(
-          children: [
-            Text(
-              item.question,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    return GestureDetector(
+        onTap: onTap,
+        child: Card(
+          color: Colors.white,
+          child: Container(
+            alignment: AlignmentDirectional.centerStart,
+            padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+            child: Column(
+              children: [
+                Text(
+                  item.question,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                ...item.options
+                    .map((option) => OptionWidget(
+                          option: option,
+                        ))
+                    .toList()
+              ],
             ),
-            ...item.options
-                .map((option) => OptionWidget(
-                      option: option,
-                    ))
-                .toList()
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }
 
