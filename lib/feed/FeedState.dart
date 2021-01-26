@@ -24,7 +24,7 @@ class FeedState extends State<FeedPage> {
 
   void _addItem() {
     setState(() {
-      _items.add(FeedItem("Question", []));
+      _items.add(FeedItem("Question?", ["fist", "second"]));
     });
   }
 }
