@@ -18,14 +18,16 @@ class FeedState extends State<FeedPage> {
           children: _items
               .map((item) => FeedItemWidget(
                   item: item,
-                  onTap: () =>
-                      {Navigator.push(context, _getItemDetailsRoute(item))}))
+                  onTap: () {
+                    Navigator.push(context, _getItemDetailsRoute(item));
+                  }))
               .toList(),
         ),
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
-            onPressed: () =>
-                {Navigator.push(context, _getAddNewItemRouter())}));
+            onPressed: () {
+              Navigator.push(context, _getAddNewItemRouter());
+            }));
   }
 
   Route<void> _getItemDetailsRoute(FeedItem item) {
@@ -33,8 +35,8 @@ class FeedState extends State<FeedPage> {
         builder: (BuildContext context) => FeedItemDetailsPage(item: item));
   }
 
-  Route<void> _getAddNewItemRouter() {
-    return MaterialPageRoute<void>(
+  Route<FeedItem> _getAddNewItemRouter() {
+    return MaterialPageRoute<FeedItem>(
         builder: (BuildContext context) => FeedAddNewItemPage());
   }
 }
