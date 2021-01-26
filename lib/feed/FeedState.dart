@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:publicpoll_flutter/feed/FeedItem.dart';
 import 'package:publicpoll_flutter/feed/FeedPage.dart';
-import 'package:publicpoll_flutter/feed/FeedWidget.dart';
+import 'package:publicpoll_flutter/feed/FeedItemWidget.dart';
 
 class FeedState extends State<FeedPage> {
   var _items = <FeedItem>[];
@@ -13,7 +13,7 @@ class FeedState extends State<FeedPage> {
         title: Text("Feed"),
       ),
       body: ListView(
-        children: _items.map((item) => FeedWidget(item: item)).toList(),
+        children: _items.map((item) => FeedItemWidget(item: item)).toList(),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:publicpoll_flutter/feed/FeedItem.dart';
 
-class FeedWidget extends StatelessWidget {
+class FeedItemWidget extends StatelessWidget {
   final FeedItem item;
 
-  const FeedWidget({Key key, this.item}) : super(key: key);
+  const FeedItemWidget({Key key, this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
