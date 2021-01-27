@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:publicpoll_flutter/ratings/Rating.dart';
 import 'package:publicpoll_flutter/ratings/RatingPage.dart';
@@ -9,7 +11,7 @@ class RatingState extends State<RatingPage> {
   final RatingsRepository repository = RatingsRepository();
 
   var _uiState = _RatingUIState.loading;
-  var rating = Rating(users: []);
+  var _rating = Rating(users: []);
 
   @override
   void initState() {
@@ -30,24 +32,30 @@ class RatingState extends State<RatingPage> {
     Widget body;
     switch (_uiState) {
       case _RatingUIState.loading:
-        body = Text("loading");
+        body = Center(child: CircularProgressIndicator());
         break;
       case _RatingUIState.loaded:
         body = ListView(
-            children: rating.users.map((user) => Text(user.name)).toList());
+            children: _rating.users.map((user) => Text(user.name)).toList());
         break;
       case _RatingUIState.error:
-        body = Text("error");
+        body = Center(child: Text("Something went wrong!"));
         break;
     }
     return body;
   }
 
   _loadRating() async {
-    final rating = await repository.loadRating();
-    setState(() {
-      this.rating = rating;
-      _uiState = _RatingUIState.loaded;
+    repository.loadRating().then((value) {
+      setState(() {
+        _rating = value;
+        _uiState = _RatingUIState.loaded;
+      });
+    }).catchError((e, trace) {
+      log(e.toString());
+      setState(() {
+        _uiState = _RatingUIState.error;
+      });
     });
   }
 }
