@@ -5,6 +5,7 @@ import 'package:publicpoll_flutter/feed/FeedPage.dart';
 import 'package:publicpoll_flutter/feed/FeedRepository.dart';
 import 'package:publicpoll_flutter/feed_add_new_item/FeedAddNewItemPage.dart';
 import 'package:publicpoll_flutter/feed_item_details/FeedItemDetailsPage.dart';
+import 'package:publicpoll_flutter/ratings/RatingPage.dart';
 
 class FeedState extends State<FeedPage> {
   final FeedRepository repository = FeedRepository();
@@ -21,6 +22,9 @@ class FeedState extends State<FeedPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Feed"),
+          actions: [
+            IconButton(icon: Icon(Icons.person), onPressed: _onRatingClick)
+          ],
         ),
         body: ListView(
           children: _items
@@ -53,13 +57,21 @@ class FeedState extends State<FeedPage> {
     }
   }
 
+  _onRatingClick() {
+    Navigator.push(context, _getRatingRoute());
+  }
+
   Route<void> _getItemDetailsRoute(FeedItem item) {
     return MaterialPageRoute<void>(
-        builder: (BuildContext context) => FeedItemDetailsPage(item: item));
+        builder: (context) => FeedItemDetailsPage(item: item));
   }
 
   Route<FeedItem> _getAddNewItemRouter() {
     return MaterialPageRoute<FeedItem>(
-        builder: (BuildContext context) => FeedAddNewItemPage());
+        builder: (context) => FeedAddNewItemPage());
+  }
+
+  Route<void> _getRatingRoute() {
+    return MaterialPageRoute(builder: (context) => RatingPage());
   }
 }
