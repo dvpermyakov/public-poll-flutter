@@ -27,12 +27,28 @@ class FeedState extends State<FeedPage> {
           ],
         ),
         body: ListView(
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-          children: _items
-              .map((item) =>
-                  FeedItemWidget(item: item, onTap: () => {_onItemTap(item)}))
-              .toList(),
-        ),
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+            children: [
+              Container(
+                  padding: EdgeInsets.only(bottom: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                        image: AssetImage("assets/poll.png"),
+                        width: 48,
+                        height: 48,
+                      ),
+                      Text("The newest polls:",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 24))
+                    ],
+                  )),
+              ..._items
+                  .map((item) => FeedItemWidget(
+                      item: item, onTap: () => {_onItemTap(item)}))
+                  .toList()
+            ]),
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add), onPressed: _onAddButton));
   }
