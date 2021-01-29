@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:publicpoll_flutter/ratings/Rating.dart';
 import 'package:publicpoll_flutter/ratings/RatingPage.dart';
 import 'package:publicpoll_flutter/ratings/RatingRepository.dart';
+import 'package:publicpoll_flutter/ratings/RatingWidgetItem.dart';
 
 enum _RatingUIState { loading, loaded, error }
 
@@ -36,7 +37,9 @@ class RatingState extends State<RatingPage> {
         break;
       case _RatingUIState.loaded:
         body = ListView(
-            children: _rating.users.map((user) => Text(user.name)).toList());
+            children: _rating.users
+                .map((user) => RatingWidgetItem(user: user))
+                .toList());
         break;
       case _RatingUIState.error:
         body = Center(child: Text("Something went wrong!"));
