@@ -27,6 +27,7 @@ class FeedState extends State<FeedPage> {
           ],
         ),
         body: ListView(
+          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
           children: _items
               .map((item) =>
                   FeedItemWidget(item: item, onTap: () => {_onItemTap(item)}))

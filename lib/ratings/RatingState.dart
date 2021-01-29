@@ -37,6 +37,7 @@ class RatingState extends State<RatingPage> {
         break;
       case _RatingUIState.loaded:
         body = ListView(
+            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
             children: _rating.users
                 .map((user) => RatingWidgetItem(user: user))
                 .toList());
