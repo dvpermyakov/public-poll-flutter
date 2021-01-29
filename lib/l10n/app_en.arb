@@ -1,0 +1,14 @@
+{
+  "error": "Something went wrong!",
+  "feed": "Feed",
+  "poll": "Poll",
+  "rating": "Rating",
+  "newestPolls": "The newest polls:",
+  "createNewPoll": "Create new poll",
+  "questionHint": "Question",
+  "questionError": "Please fulfill question!",
+  "option1Hint": "Option 1",
+  "option1Error": "Please fulfill option 1!",
+  "option2Hint": "Option 2",
+  "option2Error": "Please fulfill option 2!"
+}

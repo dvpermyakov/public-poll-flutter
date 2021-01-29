@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:publicpoll_flutter/ratings/Rating.dart';
 import 'package:publicpoll_flutter/ratings/RatingPage.dart';
 import 'package:publicpoll_flutter/ratings/RatingRepository.dart';
@@ -24,7 +25,7 @@ class RatingState extends State<RatingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Rating"),
+          title: Text(AppLocalizations.of(context).rating),
         ),
         body: _getBody());
   }
@@ -43,7 +44,7 @@ class RatingState extends State<RatingPage> {
                 .toList());
         break;
       case _RatingUIState.error:
-        body = Center(child: Text("Something went wrong!"));
+        body = Center(child: Text(AppLocalizations.of(context).error));
         break;
     }
     return body;

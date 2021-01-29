@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:publicpoll_flutter/feed/FeedItem.dart';
 import 'package:publicpoll_flutter/feed/FeedItemWidget.dart';
 import 'package:publicpoll_flutter/feed/FeedPage.dart';
@@ -21,7 +22,7 @@ class FeedState extends State<FeedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Feed"),
+          title: Text(AppLocalizations.of(context).feed),
           actions: [
             IconButton(icon: Icon(Icons.person), onPressed: _onRatingClick)
           ],
@@ -39,7 +40,7 @@ class FeedState extends State<FeedPage> {
                         width: 48,
                         height: 48,
                       ),
-                      Text("The newest polls:",
+                      Text((AppLocalizations.of(context).newestPolls),
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 24))
                     ],

@@ -1,0 +1,14 @@
+{
+  "error": "Что-то пошло не так!",
+  "feed": "Новости",
+  "poll": "Опрос",
+  "rating": "Рейтинг",
+  "newestPolls": "Свежие опросы:",
+  "createNewPoll": "Создать новый опрос",
+  "questionHint": "Вопрос",
+  "questionError": "Напишите вопрос!",
+  "option1Hint": "Вариант 1",
+  "option1Error": "Заполните вариант 1!",
+  "option2Hint": "Вариант 2",
+  "option2Error": "Заполните вариант 2!"
+}

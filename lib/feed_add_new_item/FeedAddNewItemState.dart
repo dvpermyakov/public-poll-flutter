@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:publicpoll_flutter/feed/FeedItem.dart';
 import 'package:publicpoll_flutter/feed_add_new_item/FeedAddNewItemPage.dart';
 
@@ -12,7 +13,7 @@ class FeedAddNewItemState extends State<FeedAddNewItemPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create new poll"),
+        title: Text(AppLocalizations.of(context).createNewPoll),
       ),
       body: Form(
           key: _key,
@@ -20,37 +21,40 @@ class FeedAddNewItemState extends State<FeedAddNewItemPage> {
             padding: EdgeInsets.symmetric(horizontal: 16),
             children: [
               TextFormField(
-                decoration: InputDecoration(hintText: "Question"),
+                decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context).questionHint),
                 onChanged: (value) {
                   _question = value;
                 },
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please fulfill question!';
+                    return AppLocalizations.of(context).questionError;
                   }
                   return null;
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(hintText: "Option 1"),
+                decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context).option1Hint),
                 onChanged: (value) {
                   _option1 = value;
                 },
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please fulfill option 1!';
+                    return AppLocalizations.of(context).option1Error;
                   }
                   return null;
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(hintText: "Option 2"),
+                decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context).option1Hint),
                 onChanged: (value) {
                   _option2 = value;
                 },
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please fulfill option 2!';
+                    return AppLocalizations.of(context).option2Error;
                   }
                   return null;
                 },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:publicpoll_flutter/feed/FeedItem.dart';
 import 'package:publicpoll_flutter/feed/FeedItemWidget.dart';
 
@@ -11,7 +12,7 @@ class FeedItemDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Poll"),
+          title: Text(AppLocalizations.of(context).poll),
         ),
         body: ListView(
           children: [FeedItemWidget(item: item, onTap: null)],
