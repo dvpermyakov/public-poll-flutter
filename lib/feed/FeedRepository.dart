@@ -13,9 +13,9 @@ class FeedRepository {
     var jsonItems = pref.getStringList(_key);
     if (jsonItems != null) {
       var items = jsonItems.map(_decode).toList();
-      return Future.value(items);
+      return items;
     } else {
-      return Future.value([]);
+      return [];
     }
   }
 
