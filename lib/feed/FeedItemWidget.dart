@@ -16,12 +16,12 @@ class FeedItemWidget extends StatelessWidget {
           color: Colors.white,
           child: Container(
             alignment: AlignmentDirectional.centerStart,
-            padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Column(
               children: [
                 Text(
                   item.question,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 ...item.options
                     .map((option) => OptionWidget(
@@ -42,18 +42,31 @@ class OptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 16,
-          height: 16,
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            shape: BoxShape.circle,
-          ),
-        ),
-        Text(option)
-      ],
+    return Container(
+        padding: EdgeInsets.only(top: 8),
+        child: Row(
+          children: [_getOptionIndicator(context), _getOptionText()],
+        ));
+  }
+
+  Widget _getOptionIndicator(BuildContext context) {
+    return Container(
+      width: 8,
+      height: 8,
+      margin: EdgeInsets.only(right: 8),
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor,
+        shape: BoxShape.circle,
+      ),
+    );
+  }
+
+  Widget _getOptionText() {
+    return Expanded(
+      child: Text(
+        option,
+        style: TextStyle(fontSize: 16),
+      ),
     );
   }
 }
