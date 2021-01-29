@@ -14,7 +14,7 @@ class FeedItemDetailsPage extends StatelessWidget {
           title: Text(item.question),
         ),
         body: ListView(
-          children: [FeedItemWidget(item: item, onTap: () => {})],
+          children: [FeedItemWidget(item: item, onTap: null)],
         ));
   }
 }

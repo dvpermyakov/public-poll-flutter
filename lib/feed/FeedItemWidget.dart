@@ -10,28 +10,26 @@ class FeedItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: onTap,
-        child: Card(
-          color: Colors.white,
-          child: Container(
-            alignment: AlignmentDirectional.centerStart,
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Column(
-              children: [
-                Text(
-                  item.question,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                ...item.options
-                    .map((option) => OptionWidget(
-                          option: option,
-                        ))
-                    .toList()
-              ],
-            ),
+    final container = Container(
+      alignment: AlignmentDirectional.centerStart,
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Column(
+        children: [
+          Text(
+            item.question,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-        ));
+          ...item.options
+              .map((option) => OptionWidget(
+                    option: option,
+                  ))
+              .toList()
+        ],
+      ),
+    );
+    final child =
+        onTap != null ? InkWell(onTap: onTap, child: container) : container;
+    return Card(color: Colors.white, child: child);
   }
 }
 
