@@ -56,6 +56,7 @@ class RatingState extends State<RatingPage> {
       });
     }).catchError((e, trace) {
       log(e.toString());
+      log(trace.toString());
       setState(() {
         _uiState = _RatingUIState.error;
       });
