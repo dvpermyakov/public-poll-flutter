@@ -11,7 +11,7 @@ class FeedItemDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(item.question),
+          title: Text("Poll"),
         ),
         body: ListView(
           children: [FeedItemWidget(item: item, onTap: null)],
